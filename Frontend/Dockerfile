@@ -8,8 +8,6 @@ RUN mkdir -p /usr/src/app/frontend
 # Set working directories so that all aubsequents run in this folder
 WORKDIR /usr/src/app/frontend
 
-# COPY package*.json ./
-
 # Copy our app
 COPY . .
 # Copy package.json and install dependencies

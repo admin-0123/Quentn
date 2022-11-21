@@ -8,7 +8,6 @@ RUN mkdir -p /usr/src/app/backend
 # Set working directory so that all subsequent commands runs in this folder
 WORKDIR /usr/src/app/backend
 
-# COPY package*.json ./
 # Copy our app
 COPY . .
 # Copy package.json and install dependencies
