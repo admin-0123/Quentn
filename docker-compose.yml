@@ -23,4 +23,7 @@ services:
     ports:
       - "5432:5432"
     container_name: database-docker
+    environment:
+      POSTGRES_PASSWORD: Jackson@0123
+      POSTGRES_HOST_AUTH_METHOD: trust
     restart: always
