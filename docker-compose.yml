@@ -1,20 +1,27 @@
-version: '3'
+version: "3"
 
-services: 
-  
+services:
+  # Create frontend container
+  frontend: # Name of our service
+    build: ./Frontend # path to dockerfile
+    ports: # Port binding to host from docker container
+      - "3001:3000" # Binding port 3000 of host to 3000 of container
+    container_name: frontend-docker
+    restart: always # What to do if container crashes
+    
   # Create backend container
-  backend: 
-  # Create backend container
+  backend:
+    # Create backend container
     network_mode: host
     build: ./Backend/quentn # path to dockerfile
-    ports: 
+    ports:
       - "1337:1337"
     container_name: backend-docker
     restart: always
     env_file:
       - ./Backend/quentn/.env
-    
-  postgres: 
+
+  postgres:
     network_mode: host
     image: postgres
     ports:
@@ -25,6 +32,3 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=quentn
     restart: always
-    # volumes: 
-    #   - ./db:/var/lib/postgresql/data
-      # - ./pgstrapi_temp.sql:/docker-entrypoint-initdb.d/pgstrapi_temp.sql
