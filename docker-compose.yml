@@ -11,6 +11,8 @@ services:
       - "1337:1337"
     container_name: backend-docker
     restart: always
+    env_file:
+      - ./Backend/quentn/.env
     
   postgres: 
     network_mode: host
