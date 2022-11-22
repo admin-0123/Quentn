@@ -9,8 +9,9 @@ services:
     container_name: frontend-docker
     restart: always # What to do if container crashes
     volumes:
-      - ./Frontend:/src/frontend/
-      - nodemodules:/src/frontend/node_modules
+      - ./Frontend:/usr/src/app/frontend
+      - /usr/src/app/frontend/node_modules
+      - /usr/src/app/frontend/.nuxt
 
   # Create backend container
   backend:
@@ -24,9 +25,10 @@ services:
     env_file:
       - ./Backend/quentn/.env
     volumes:
-      - ./Backend/quentn:/src/backend/
-      - nodemodules:/src/backend/node_modules
-
+      - ./Backend/quentn:/usr/src/app/backend/
+      - /usr/src/app/backend/node_modules
+      - /usr/src/app/backend/dist
+      
   postgres:
     network_mode: host
     image: postgres
@@ -38,6 +40,3 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=quentn
     restart: always
-    
-volumes:
-  nodemodules: {}
