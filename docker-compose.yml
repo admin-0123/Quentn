@@ -1,7 +1,7 @@
 version: '3'
 
 services: 
-    
+  
   # Create backend container
   backend: 
   # Create backend container
@@ -23,15 +23,8 @@ services:
     volumes: 
       - ./db:/var/lib/postgresql/data
       # - ./pgstrapi_temp.sql:/var/lib/postgresql/pgstrapi_temp.sql
-  
-  pgadmin-compose:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: nico.developer.95@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: Jackson@0123
-    ports:
-      - "16543:80"
-    depends_on:
-      - postgres
 
+volumes:
+  postgres:
+    driver: local
 
