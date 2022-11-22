@@ -13,7 +13,6 @@ COPY . .
 # Copy package.json and install dependencies
 RUN yarn install
 
-
 # Expose port to access server
 EXPOSE 8080
 
