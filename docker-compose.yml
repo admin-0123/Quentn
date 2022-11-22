@@ -1,13 +1,6 @@
 version: '3'
 
 services: 
-  # Create frontend container
-  frontend: # Name of our service
-    build: ./Frontend # path to dockerfile
-    ports: # Port binding to host from docker container
-      - "3001:3000" # Binding port 3000 of host to 3000 of container
-    container_name: frontend-docker
-    restart: always # What to do if container crashes
     
   # Create backend container
   backend: 
@@ -19,17 +12,17 @@ services:
     restart: always
     
   postgres: 
-    image: postgres:15.1-alpine
+    image: postgres
     ports:
       - "5432:5432"
     container_name: postgres-docker
     environment:
       - POSTGRES_PASSWORD=Jackson@0123
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=quentn
     restart: always
     volumes: 
-      - ./pgstrapi_temp.sql:/var/lib/postgresql/pgstrapi_temp.sql
+      - ./db:/var/lib/postgresql/data
+      # - ./pgstrapi_temp.sql:/var/lib/postgresql/pgstrapi_temp.sql
   
   pgadmin-compose:
     image: dpage/pgadmin4
