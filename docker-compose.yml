@@ -1,6 +1,23 @@
 version: '3'
 
 services: 
+  # Create frontend container
+  frontend: # Name of our service
+    build: ./Frontend # path to dockerfile
+    ports: # Port binding to host from docker container
+      - "3001:3000" # Binding port 3000 of host to 3000 of container
+    container_name: frontend-docker
+    restart: always # What to do if container crashes
+    
+  # Create backend container
+  backend: 
+  # Create backend container
+    build: ./Backend/quentn # path to dockerfile
+    ports: 
+      - "8080:8080"
+    container_name: backend-docker
+    restart: always
+    
   postgres: 
     image: postgres:15.1-alpine
     ports:
@@ -23,3 +40,5 @@ services:
       - "16543:80"
     depends_on:
       - postgres
+
+
