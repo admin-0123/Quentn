@@ -1,0 +1,1 @@
+export { default } from "file:///Volumes/Chorus/__Code%20Source/Quentn/Frontend/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
