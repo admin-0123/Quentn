@@ -8,7 +8,7 @@ services:
     network_mode: host
     build: ./Backend/quentn # path to dockerfile
     ports: 
-      - "8080:8080"
+      - "1337:1337"
     container_name: backend-docker
     restart: always
     

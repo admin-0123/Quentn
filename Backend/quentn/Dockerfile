@@ -14,7 +14,7 @@ COPY . .
 RUN yarn install
 
 # Expose port to access server
-EXPOSE 8080
+EXPOSE 1337
 
 # Command to run our app
 CMD ["yarn", "develop"]
