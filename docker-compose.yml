@@ -5,6 +5,7 @@ services:
   # Create backend container
   backend: 
   # Create backend container
+    network_mode: host
     build: ./Backend/quentn # path to dockerfile
     ports: 
       - "8080:8080"
@@ -12,6 +13,7 @@ services:
     restart: always
     
   postgres: 
+    network_mode: host
     image: postgres
     ports:
       - "5432:5432"
@@ -23,8 +25,3 @@ services:
     volumes: 
       - ./db:/var/lib/postgresql/data
       # - ./pgstrapi_temp.sql:/var/lib/postgresql/pgstrapi_temp.sql
-
-volumes:
-  postgres:
-    driver: local
-
