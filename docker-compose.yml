@@ -24,4 +24,4 @@ services:
     restart: always
     volumes: 
       # - ./db:/var/lib/postgresql/data
-      - ./pgstrapi_temp.sql:/var/lib/postgresql/pgstrapi_temp.sql
+      - ./pgstrapi_temp.sql:/docker-entrypoint-initdb.d/pgstrapi_temp.sql
