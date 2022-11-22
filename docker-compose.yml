@@ -21,6 +21,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=Jackson@0123
       - POSTGRES_USER=postgres
+      - POSTGRES_DB=quentn
     restart: always
     volumes: 
       # - ./db:/var/lib/postgresql/data
