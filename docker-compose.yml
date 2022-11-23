@@ -6,14 +6,13 @@ services:
     build: ./Frontend # path to dockerfile
     ports: # Port binding to host from docker container
       - "3001:3000" # Binding port 3000 of host to 3000 of container
+      - "24678:24678"
     container_name: frontend-docker
     restart: always # What to do if container crashes
     volumes:
       - ./Frontend:/usr/src/app/frontend
       - /usr/src/app/frontend/node_modules
       - /usr/src/app/frontend/.nuxt
-    environment: 
-      - CHOKIDAR_USEPOLLING=true
 
   # Create backend container
   backend:
