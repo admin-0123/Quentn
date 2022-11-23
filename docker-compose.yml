@@ -5,7 +5,7 @@ services:
   frontend: # Name of our service
     build: ./Frontend # path to dockerfile
     ports: # Port binding to host from docker container
-      - "3001:3000" # Binding port 3000 of host to 3000 of container
+      - "3001:3001" # Binding port 3000 of host to 3000 of container
     container_name: frontend-docker
     restart: always # What to do if container crashes
     volumes:
