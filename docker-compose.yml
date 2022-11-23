@@ -16,7 +16,6 @@ services:
   # Create backend container
   backend:
     # Create backend container
-    network_mode: host
     build: ./Backend/quentn # path to dockerfile
     ports:
       - "1337:1337"
@@ -25,12 +24,13 @@ services:
     env_file:
       - ./Backend/quentn/.env
     volumes:
-      - ./Backend/quentn:/usr/src/app/backend/
+      - ./Backend/quentn:/usr/src/app/backend
       - /usr/src/app/backend/node_modules
       - /usr/src/app/backend/dist
+    depends_on:
+      - postgres
       
   postgres:
-    network_mode: host
     image: postgres
     ports:
       - "5432:5432"
@@ -40,3 +40,5 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=quentn
     restart: always
+    volumes:
+      - ./pgstrapi_temp.sql:/usr/src/app/postgres/pgstrapi_temp.sql
